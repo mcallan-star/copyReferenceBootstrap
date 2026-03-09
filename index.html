@@ -108,13 +108,13 @@
                     <div class="col">
                       <div class="row">
                         <!-- allows centering -->
-                        <button type="button" class="p-3 btn btn-secondary" onclick="inputNumber('C')" style="
+                        <button type="button" class="p-3 btn btn-secondary" style="
                         background-color: #fcb8c3;">C</button>
                       </div>
                     </div>
                     <div class="col">
                       <div class="row">
-                        <button type="button" class="p-3 btn btn-secondary" onclick="inputNumber('DEL')" style="
+                        <button type="button" class="p-3 btn btn-secondary" style="
                             background-color:#dbccef;">
                           DEL
                         </button>
@@ -152,7 +152,7 @@
                     </div>
                     <div class="col">
                       <div class="row">
-                        <button type="button" class="p-3 btn btn-secondary" style="
+                        <button type="button" class="p-3 btn btn-secondary" onclick="setOperator('divide')" style="
                             background-color: #fec79a;">
                           &divide;
                         </button>
@@ -190,7 +190,7 @@
                     </div>
                     <div class="col">
                       <div class="row">
-                        <button type="button" class="p-3 btn btn-secondary" style="
+                        <button type="button" class="p-3 btn btn-secondary" onclick="setOperator('multiply')" style="
                             background-color: #fec79a;">
                           &times;
                         </button>
@@ -220,7 +220,7 @@
                     </div>
                     <div class="col">
                       <div class="row">
-                        <button type="button" class="p-3 btn btn-secondary" style="
+                        <button type="button" class="p-3 btn btn-secondary" onclick="inputNumber('3')" style="
                             background-color: #fee1d2;
                             color: #32416f;">
                           3
@@ -229,7 +229,7 @@
                     </div>
                     <div class="col">
                       <div class="row">
-                        <button type="button" class="p-3 btn btn-secondary" style="
+                        <button type="button" class="p-3 btn btn-secondary" onclick="setOperator('subtract')" style="
                             background-color: #fec79a;">
                           &minus;
                         </button>
@@ -250,17 +250,17 @@
                     </div>
                     <div class="col">
                       <div class="row">
-                        <button type="button" class="p-3 btn btn-secondary" style="
+                        <button type="button" class="p-3 btn btn-secondary" onclick="calculate()" style="
                             background-color:#c6e5b9;
                             color: #32416f;
                             ">
-                          &Sqrt;
+                          =
                         </button>
                       </div>
                     </div>
                     <div class="col">
                       <div class="row">
-                        <button type="button" class="p-3 btn btn-secondary" style="
+                        <button type="button" class="p-3 btn btn-secondary" onclick="setOperator('add')" style="
                             background-color: #fdc698;
                             color: #ffff;
                             ">
