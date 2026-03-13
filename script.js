@@ -5,12 +5,30 @@ let operator = null;
 //grab html IDs
 const displayResult = document.getElementById('display-result');
 const displayHistory = document.getElementById('display-history');
-
+//attach event listeners for action/value
+document.querySelectorAll('button').forEach(function button() {
+    // dataset is a built-in browser API which maps the html attribute to an object
+    const action = this.dataset.action;
+    const value = this.dataset.value;
+    //iterating through each button click 
+    if (action === 'number') {
+        button.addEventListener('click', () => inputNumber(value));
+    } else if (action === 'operator') {
+        button.addEventListener('click', () => setOperator(value));
+    } else if (action === 'equals') {
+        button.addEventListener('click', () => calculate());
+    }
+    else if (action === 'c') {
+        button.addEventListener('click', () => clearAll());
+    } else if (action === 'del') {
+        button.addEventListener('click', () => deleteLast());
+    }
+})
 const symbols = {
     add: '+',
     subtract: '-',
     multiply: '×',
-    divide: '÷'
+    divide: '÷',
 };
 
 function updateExpression() {
@@ -57,18 +75,18 @@ function divide(a, b) {
 function calculate() {
     if (!previousInput || !currentInput || !operator)
         return;
-    
+
     const a = parseFloat(previousInput);
     const b = parseFloat(currentInput);
 
     let result;
-    if (operator === 'add') 
+    if (operator === 'add')
         result = add(a, b);
-    else if (operator === 'subtract') 
+    else if (operator === 'subtract')
         result = subtract(a, b);
-    else if (operator === 'multiply') 
+    else if (operator === 'multiply')
         result = multiply(a, b);
-    else if (operator === 'divide') 
+    else if (operator === 'divide')
         result = divide(a, b);
     else return;
     displayHistory.textContent = previousInput + ' ' + symbols[operator] + ' ' + currentInput + ' =';
