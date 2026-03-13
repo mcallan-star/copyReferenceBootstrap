@@ -38,7 +38,7 @@
       color: #8d99b1;
     }
     .card-body {
-      border-radius: 20px !important;
+      border-radius: 20px !important ;
     }
   </style>
 </head>
@@ -69,7 +69,9 @@
         <!-- row 1 inside middle column -->
         <div class="row">
           <div class="col">
-            <h2 class="title" style="margin-top: 3rem; text-align: center; 
+            <h2 class="title" style="
+                margin-top: 3rem; 
+                text-align: center; 
                 color: rgb(46, 65, 110); 
                 font-family: 'Inter', sans-serif; 
                 font-weight: 600; 
@@ -87,7 +89,8 @@
         <div class="row">
           <div class="col">
 
-            <div class="card" style="width: 30rem; 
+            <div class="card" style="
+                width: 30rem; 
                 height: 35rem; 
                 border-radius: 20px; 
                 box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);">
@@ -119,13 +122,13 @@
                     <div class="col">
                       <div class="row">
                         <!-- row parent forces centering -->
-                        <button type="button" class="p-3 btn btn-secondary" onclick="clearAll()" style="
+                        <button type="button" class="p-3 btn btn-secondary" data-action="clearAll" style="
                         background-color: #fcb8c3;">C</button>
                       </div>
                     </div>
                     <div class="col">
                       <div class="row">
-                        <button type="button" class="p-3 btn btn-secondary" onclick="deleteLast()" style="
+                        <button type="button" class="p-3 btn btn-secondary" data-action="deleteLast" style="
                             background-color:#dbccef;">
                           DEL
                         </button>
@@ -135,7 +138,7 @@
                   <div class="row gx-5 row-cols-4 mb-2">
                     <div class="col">
                       <div class="row">
-                        <button type="button" class="p-3 btn btn-secondary" onclick="inputNumber('7')" style="
+                        <button type="button" class="p-3 btn btn-secondary" data-action="number" data-value="7" style="
                             background-color: #fee1d2;
                             color: #32416f;
                             ">
@@ -145,7 +148,7 @@
                     </div>
                     <div class="col">
                       <div class="row">
-                        <button type="button" class="p-3 btn btn-secondary" onclick="inputNumber('8')" style="
+                        <button type="button" class="p-3 btn btn-secondary" data-action="number" data-value="8" style="
                             background-color: #fee1d2;
                             color: #32416f;">
                           8
@@ -154,7 +157,7 @@
                     </div>
                     <div class="col">
                       <div class="row">
-                        <button type="button" class="p-3 btn btn-secondary" onclick="inputNumber('9')" style="
+                        <button type="button" class="p-3 btn btn-secondary" data-action="number" data-value="9" style="
                             background-color: #fee1d2;
                             color: #32416f;">
                           9
@@ -163,7 +166,7 @@
                     </div>
                     <div class="col">
                       <div class="row">
-                        <button type="button" class="p-3 btn btn-secondary" onclick="setOperator('divide')" style="
+                        <button type="button" class="p-3 btn btn-secondary" data-action="operator" data-value="divide" style="
                             background-color: #fec79a;">
                           &divide;
                         </button>
@@ -173,7 +176,7 @@
                   <div class="row gx-5 row-cols-4 mb-2">
                     <div class="col">
                       <div class="row">
-                        <button type="button" class="p-3 btn btn-secondary" onclick="inputNumber('4')" style="
+                        <button type="button" class="p-3 btn btn-secondary" data-action="number" data-value="4" style="
                             background-color: #fee1d2;
                             color: #32416f;
                             ">
@@ -183,7 +186,7 @@
                     </div>
                     <div class="col">
                       <div class="row">
-                        <button type="button" class="p-3 btn btn-secondary" onclick="inputNumber('5')" style="
+                        <button type="button" class="p-3 btn btn-secondary" data-action="number" data-value="5" style="
                             background-color: #fee1d2;
                             color: #32416f;">
                           5
@@ -192,7 +195,7 @@
                     </div>
                     <div class="col">
                       <div class="row">
-                        <button type="button" class="p-3 btn btn-secondary" onclick="inputNumber('6')" style="
+                        <button type="button" class="p-3 btn btn-secondary" data-action="number" data-value="6" style="
                             background-color: #fee1d2;
                             color: #32416f;">
                           6
@@ -201,7 +204,7 @@
                     </div>
                     <div class="col">
                       <div class="row">
-                        <button type="button" class="p-3 btn btn-secondary" onclick="setOperator('multiply')" style="
+                        <button type="button" class="p-3 btn btn-secondary" data-action="operator" data-value="multiply" style="
                             background-color: #fec79a;">
                           &times;
                         </button>
@@ -212,7 +215,7 @@
                   <div class="row gx-5 row-cols-4 mb-2">
                     <div class="col">
                       <div class="row">
-                        <button type="button" class="p-3 btn btn-secondary" onclick="inputNumber('1')" style="
+                        <button type="button" class="p-3 btn btn-secondary" data-action="number" data-value="1" style="
                             background-color: #fee1d2;
                             color: #32416f;
                             ">
@@ -222,7 +225,7 @@
                     </div>
                     <div class="col">
                       <div class="row">
-                        <button type="button" class="p-3 btn btn-secondary" onclick="inputNumber('2')" style="
+                        <button type="button" class="p-3 btn btn-secondary" data-action="number" data-value="2" style="
                             background-color: #fee1d2;
                             color: #32416f;">
                           2
@@ -231,7 +234,7 @@
                     </div>
                     <div class="col">
                       <div class="row">
-                        <button type="button" class="p-3 btn btn-secondary" onclick="inputNumber('3')" style="
+                        <button type="button" class="p-3 btn btn-secondary" data-action="number" data-value="3" style="
                             background-color: #fee1d2;
                             color: #32416f;">
                           3
@@ -240,7 +243,7 @@
                     </div>
                     <div class="col">
                       <div class="row">
-                        <button type="button" class="p-3 btn btn-secondary" onclick="setOperator('subtract')" style="
+                        <button type="button" class="p-3 btn btn-secondary" data-action="operator" data-value="subtract" style="
                             background-color: #fec79a;">
                           &minus;
                         </button>
@@ -249,9 +252,9 @@
                     </div>
                   </div>
                   <div class="row gx-5 row-cols-4 mb-2">
-                    <div class="col-6">
+                    <div class="col">
                       <div class="row">
-                        <button type="button" class="p-3 btn btn-secondary" onclick="inputNumber('0')" style="
+                        <button type="button" class="p-3 btn btn-secondary" data-action="number" data-value="0" style="
                             background-color: #cde6f2;
                             color: #32416f;
                             ">
@@ -261,7 +264,17 @@
                     </div>
                     <div class="col">
                       <div class="row">
-                        <button type="button" class="p-3 btn btn-secondary" onclick="calculate()" style="
+                        <button type="button" class="p-3 btn btn-secondary" data-action="number" data-value="." style="
+                            background-color: #cde6f2;
+                            color: #32416f;
+                            ">
+                          .
+                        </button>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="row">
+                        <button type="button" class="p-3 btn btn-secondary" data-action="calculate" style="
                             background-color:#c6e5b9;
                             color: #32416f;
                             ">
@@ -271,7 +284,7 @@
                     </div>
                     <div class="col">
                       <div class="row">
-                        <button type="button" class="p-3 btn btn-secondary" onclick="setOperator('add')" style="
+                        <button type="button" class="p-3 btn btn-secondary" data-action="operator" data-value="add" style="
                             background-color: #fdc698;
                             color: #ffff;
                             ">
