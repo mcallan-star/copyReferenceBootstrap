@@ -2,6 +2,11 @@ let currentInput = '';
 let previousInput = '';
 let operator = null;
 
+//grab html IDs
+const displayResult = document.getElementById('display-result');
+const displayExpression = document.getElementById('display-expression')
+
+
 const symbols = {
     add: '+',
     subtract: '-',
@@ -11,18 +16,18 @@ const symbols = {
 
 function updateExpression() {
     if (!operator || !previousInput) {
-        document.getElementById('display-expression').textContent = '';
+        displayExpression.textContent = '';
         return;
     }
 
     const b = currentInput ? ' ' + currentInput : '';
-    document.getElementById('display-expression').textContent = previousInput + ' ' + symbols[operator] + b;
+    displayExpression.textContent = previousInput + ' ' + symbols[operator] + b;
 }
 
 //function to input user numbers to the display result
 function inputNumber(num) {
     currentInput += num;
-    document.getElementById('display-result').textContent = currentInput;
+    displayResult.textContent = currentInput;
     updateExpression();
 }
 //op represents the operator to be set
@@ -40,50 +45,53 @@ function setOperator(op) {
 function add(a, b) {
     return a + b;
 }
-function subtract(a, b) { 
-    return a - b; 
+function subtract(a, b) {
+    return a - b;
 }
-function multiply(a, b) { 
-    return a * b; 
+function multiply(a, b) {
+    return a * b;
 }
-function divide(a, b) { 
-    return a / b; 
+function divide(a, b) {
+    return a / b;
 }
 
 function calculate() {
-    if (!previousInput || !currentInput || !operator) 
+    if (!previousInput || !currentInput || !operator)
         return;
-    //string--> floating point
+    
     const a = parseFloat(previousInput);
     const b = parseFloat(currentInput);
 
-    // dictionary 
-    const ops = { add, subtract, multiply, divide };
-    // operator key calls that function with a, b as arguments
-    const result = ops[operator](a, b);
-
-    //update display with result
-    document.getElementById('display-result').textContent = result;
+    let result;
+    if (operator === 'add') 
+        result = add(a, b);
+    else if (operator === 'subtract') 
+        result = subtract(a, b);
+    else if (operator === 'multiply') 
+        result = multiply(a, b);
+    else if (operator === 'divide') 
+        result = divide(a, b);
+    else return;
+    displayResult.textContent = result;
 
     // clear expression  
-    document.getElementById('display-expression').textContent = '';
+    displayExpression.textContent = '';
     currentInput = String(result);
     previousInput = '';
     operator = null;
 }
 
 function clearAll() {
-    //zero out everything
     currentInput = '';
     previousInput = '';
     operator = null;
-    document.getElementById('display-result').textContent = '0';
+    displayResult.textContent = '0';
     updateExpression();
 }
 
 function deleteLast() {
     //get everything from the beginning up until the last element
     currentInput = currentInput.slice(0, -1);
-    document.getElementById('display-result').textContent = currentInput || '0';
+    displayResult.textContent = currentInput || '0';
     updateExpression();
 }
