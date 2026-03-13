@@ -6,10 +6,10 @@ let operator = null;
 const displayResult = document.getElementById('display-result');
 const displayHistory = document.getElementById('display-history');
 //attach event listeners for action/value
-document.querySelectorAll('button').forEach(function button() {
+document.querySelectorAll('button').forEach(function(button) {
     // dataset is a built-in browser API which maps the html attribute to an object
-    const action = this.dataset.action;
-    const value = this.dataset.value;
+    const action = button.dataset.action;
+    const value = button.dataset.value;
     //iterating through each button click 
     if (action === 'number') {
         button.addEventListener('click', () => inputNumber(value));
