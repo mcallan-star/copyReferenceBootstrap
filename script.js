@@ -4,8 +4,7 @@ let operator = null;
 
 //grab html IDs
 const displayResult = document.getElementById('display-result');
-const displayExpression = document.getElementById('display-expression')
-
+const displayHistory = document.getElementById('display-history');
 
 const symbols = {
     add: '+',
@@ -15,19 +14,19 @@ const symbols = {
 };
 
 function updateExpression() {
-    if (!operator || !previousInput) {
-        displayExpression.textContent = '';
-        return;
+    if (operator && previousInput) {
+        const b = currentInput ? ' ' + currentInput : '';
+        //put nums and symbols on the right side
+        displayResult.textContent = previousInput + ' ' + symbols[operator] + b;
+    } else {
+        displayResult.textContent = currentInput || '0';
     }
-
-    const b = currentInput ? ' ' + currentInput : '';
-    displayExpression.textContent = previousInput + ' ' + symbols[operator] + b;
 }
 
 //function to input user numbers to the display result
 function inputNumber(num) {
     currentInput += num;
-    displayResult.textContent = currentInput;
+    //clears the right side
     updateExpression();
 }
 //op represents the operator to be set
@@ -72,10 +71,10 @@ function calculate() {
     else if (operator === 'divide') 
         result = divide(a, b);
     else return;
+    displayHistory.textContent = previousInput + ' ' + symbols[operator] + ' ' + currentInput + ' =';
     displayResult.textContent = result;
 
-    // clear expression  
-    displayExpression.textContent = '';
+    // clear expression
     currentInput = String(result);
     previousInput = '';
     operator = null;
@@ -85,6 +84,7 @@ function clearAll() {
     currentInput = '';
     previousInput = '';
     operator = null;
+    displayHistory.textContent = '';
     displayResult.textContent = '0';
     updateExpression();
 }
@@ -92,6 +92,5 @@ function clearAll() {
 function deleteLast() {
     //get everything from the beginning up until the last element
     currentInput = currentInput.slice(0, -1);
-    displayResult.textContent = currentInput || '0';
     updateExpression();
 }
